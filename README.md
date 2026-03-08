@@ -1,4 +1,4 @@
-# NYC Taxi Analytics (Rust + DataFusion)
+# NYC Taxi Analytics 
 
 ## What the Project Does
 
