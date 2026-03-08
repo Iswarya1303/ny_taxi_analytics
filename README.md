@@ -1,26 +1,56 @@
-NYC Taxi Analytics with Rust and DataFusion
-What this project does
-Loads all 12 NYC TLC Yellow Taxi Parquet files for 2025 into DataFusion
-Computes required aggregations using both DataFusion DataFrame API and DataFusion SQL
-Prints readable aggregation results to the terminal
-Stores a screenshot of the final output in the screenshots folder
-Dataset source
-NYC TLC Trip Record Data:
+# NYC Taxi Analytics (Rust + DataFusion)
+
+## What the Project Does
+
+- Loads all NYC TLC Yellow Taxi trip data for the **year 2025** from Parquet files into the DataFusion query engine.
+- Performs analytical aggregations using **DataFusion SQL** and the **DataFusion DataFrame API**.
+- Computes monthly trip statistics and tip behavior by payment type.
+- Displays the results as formatted tables in the terminal.
+
+---
+
+## Dataset Source
+
+NYC TLC Trip Record Data  
 https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page
 
-How to download data
-Download all 12 monthly Yellow Taxi Parquet files for 2025 from the NYC TLC Trip Record Data page and place them in a local data/ folder.
+Data Dictionary  
+https://www.nyc.gov/assets/tlc/downloads/pdf/data_dictionary_trip_records_yellow.pdf
 
-Example filenames:
+---
 
-yellow_tripdata_2025-01.parquet
-yellow_tripdata_2025-02.parquet
-...
-yellow_tripdata_2025-12.parquet
-Note: Parquet files are not included in this repository.
+## How to Download Data
 
-How to run the project
-cargo run
+Download the **Yellow Taxi Trip Records for 2025** from the NYC TLC website.
 
+Place the downloaded files in a local directory named:
 
-repo link -> https://github.com/Iswarya1303/ny_taxi_analytics
+---
+
+## Aggregation 1 – Trips and Revenue by Month
+
+This aggregation groups taxi trips by the **pickup month** derived from `tpep_pickup_datetime`.
+
+It calculates:
+
+- Total number of trips
+- Total revenue using `total_amount`
+- Average fare using `fare_amount`
+
+Results are sorted by month in ascending order.
+
+---
+
+## Aggregation 2 – Tip Behavior by Payment Type
+
+This aggregation groups trips by **payment_type**.
+
+It calculates:
+
+- Trip count
+- Average tip amount (`tip_amount`)
+- Tip rate defined as total tips divided by total revenue.
+
+Results are sorted by trip count in descending order.
+
+"repo link" -> https://github.com/Iswarya1303/ny_taxi_analytics
